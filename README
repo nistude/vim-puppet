@@ -1,0 +1,4 @@
+# From puppet's repository:
+
+cp -r ../puppet/ext/vim/ftdetect .
+cp -r ../puppet/ext/vim/syntax .
