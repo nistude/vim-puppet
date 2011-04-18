@@ -2,3 +2,9 @@ This is a collection of files from several places:
 
 - ftdetect and syntax from puppet/ext/vim
 - snippets from R.I.Pienaar
+
+INSTALLATION
+
+If you are using pathogen to manage your vim modules, put vim-puppet into
+your ~/.vim/bundle/ directory. Otherwise place the files in appropriate
+places under ~/.vim/.
