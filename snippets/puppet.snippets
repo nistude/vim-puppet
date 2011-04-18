@@ -1,7 +1,7 @@
-# Snippets for use with VIM and http://www.vim.org/scripts/script.php?script_id=2540
+# Snippets for use with VIM and puppet.vim
 #
-# Please contact R.I.Pienaar <rip@devco.net> for additions and feedback, 
-# see it in action @ http://www.devco.net/archives/2009/09/22/vim_and_puppet.php
+# Based on puppet.snippets from R.I.Pienaar <rip@devco.net>
+# http://www.devco.net/archives/2009/09/22/vim_and_puppet.php
 
 # Language Constructs
 snippet class
@@ -25,21 +25,21 @@ snippet ife
 snippet if
 	if $${1:variable} {
 		${2}
-	} 
+	}
 snippet else
 	else {
 		${1}
 	}
 snippet ?
 	? {
-		'${1}'	=> ${2}
+		'${1}' => ${2}
 	  }
-# 
+#
 # blocks etc and general syntax sugar
 snippet [
 	[ ${1} ]${2}
 snippet >
-	${1}	=> ${2}
+	${1} => ${2}
 snippet p:
 	"puppet://puppet/${1:module name}/${2:file name}"
 #
@@ -54,7 +54,7 @@ snippet defined
 	defined(${1:Resource}["${2:name}"])${3}
 snippet emerg
 	emerg("${1:message}")${2}
-snippet extlookup Simple extlookup 
+snippet extlookup Simple extlookup
 	extlookup("${1:variable}")${2}
 snippet extlookup Extlookup with defaults
 	extlookup("${1:variable}", "${2:default}")${3}
@@ -83,61 +83,61 @@ snippet warning
 #
 # Types
 snippet cron
-	cron{"${1:name}":
-		command	=> "${2}",
-		user	=> "${3:root}",
-		${4}	=> ${5}
+	cron{ "${1:name}":
+		command => "${2}",
+		user => "${3:root}",
+		${4} => ${5}
 	}
 snippet exec
-	exec{"${1:name}":
-		command	=> "${2:$1}",
-		user	=> "${3:root}",
-		${4}	=> ${5}
+	exec{ "${1:name}":
+		command => "${2:$1}",
+		user => "${3:root}",
+		${4} => ${5}
 	}
 snippet user
-	user{"${1:user}":
-		comment		=> "${2:$1}",
-		ensure		=> present,
-		managehome	=> true,
-		home		=> "${3:/home/$1}"
+	user{ "${1:user}":
+		comment => "${2:$1}",
+		ensure => present,
+		managehome => true,
+		home => "${3:/home/$1}"
 	}
 snippet group
-	group{"${1:group}":
-		ensure	=> ${2:present}
+	group{ "${1:group}":
+		ensure => ${2:present}
 	}
 snippet host
-	host{"${1:hostname}":
-		ip	=> ${2:127.0.0.1}
+	host{ "${1:hostname}":
+		ip => ${2:127.0.0.1}
 	}
 snippet mailalias
-	mailalias{"${1:localpart}":
-		recipient	=> "${2:recipient}"
+	mailalias{ "${1:localpart}":
+		recipient => "${2:recipient}"
 	}
 snippet mount
-	mount{"${1:destination path}":
-		ensure	=> ${2:mounted},
-		device	=> "${3:device name or path}"
+	mount{ "${1:destination path}":
+		ensure => ${2:mounted},
+		device => "${3:device name or path}"
 	}
 snippet package
-	package{"${1:package name}":
-		ensure	=> ${2:present}
+	package{ "${1:package name}":
+		ensure => ${2:present}
 	}
 snippet yumrepo
-	yumrepo{"${1:repo name}":
-		descr	=> "${2:$1}",
-		enabled	=> ${3:1}
+	yumrepo{ "${1:repo name}":
+		descr => "${2:$1}",
+		enabled => ${3:1}
 	}
 snippet define
 	define ${1} (${2}) {
 		${3}
 	}
 snippet service
-	service{"${1:service}":
-		enable		=> ${2:true},
-		ensure		=> ${3:running},
-		hasstatus	=> true,
+	service{ "${1:service}":
+		enable => ${2:true},
+		ensure => ${3:running},
+		hasstatus => true,
 	}
 snippet file
-	file{"${1:path}":
-		${2}	=> ${3}
+	file{ "${1:path}":
+		${2} => ${3}
 	}
