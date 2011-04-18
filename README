@@ -1,4 +1,4 @@
-# From puppet's repository:
+This is a collection of files from several places:
 
-cp -r ../puppet/ext/vim/ftdetect .
-cp -r ../puppet/ext/vim/syntax .
+- ftdetect and syntax from puppet/ext/vim
+- snippets from R.I.Pienaar
